@@ -18,4 +18,20 @@ defmodule DayOne do
     |> Enum.map(&calc/1)
     |> Enum.sum()
   end
+
+  def weight_with_fuel(weight) do
+    req = calc(weight)
+
+    if req > 0 do
+      req + weight_with_fuel(req)
+    else
+      0
+    end
+  end
+
+  def calc_req_fuel do
+    parse_file()
+    |> Enum.map(&weight_with_fuel/1)
+    |> Enum.sum()
+  end
 end
