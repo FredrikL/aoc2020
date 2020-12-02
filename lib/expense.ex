@@ -2,6 +2,16 @@ defmodule Expense do
   require Logger
 
   def get_entries(input) do
+    [h | _t] =
+      for a <- input,
+          b <- input,
+          a + b == 2020,
+          do: {a, b}
+
+    h
+  end
+
+  def get_entriesx(input) do
     input
     |> Enum.map(fn a ->
       b = test(a, input)
@@ -17,6 +27,17 @@ defmodule Expense do
   end
 
   def get_3_entries(input) do
+    [h | _t] =
+      for a <- input,
+          b <- input,
+          c <- input,
+          a + b + c == 2020,
+          do: {a, b, c}
+
+    h
+  end
+
+  def get_3_entriesx(input) do
     input
     |> Enum.map(fn a ->
       b = xxx(a, input)
