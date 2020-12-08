@@ -52,16 +52,13 @@ defmodule Bags do
   end
 
   def count_bags(map, key) do
-    IO.puts(key)
     contains = map[key]
-    IO.inspect(contains)
 
     if contains != %{} do
       bag =
         Map.keys(contains)
         |> Enum.map(fn k -> count_bags(map, k) * contains[k] + contains[k] end)
 
-      IO.inspect(bag)
       Enum.sum(bag)
     else
       0
