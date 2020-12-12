@@ -161,10 +161,9 @@ defmodule DayTen.DayTenTest do
       |> Enum.map(fn v -> v |> String.trim() |> String.to_integer() end)
       |> Enum.sort()
 
-    x =
-      find_consecutive(input)
-      |> Enum.map(&to_perm/1)
-      |> Enum.reduce(&Kernel.*/2)
+    find_consecutive(input)
+    |> Enum.map(&to_perm/1)
+    |> Enum.reduce(&Kernel.*/2)
   end
 
   def to_perm(1), do: 1
