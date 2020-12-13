@@ -18,4 +18,17 @@ defmodule Bus do
       find_first(time + 1, timetable)
     end
   end
+
+  def get_offsets(input) do
+    input
+    |> String.split(",")
+    |> Enum.with_index()
+    |> Enum.filter(fn {v, _i} ->
+      v != "x"
+    end)
+    |> Enum.map(fn {v, idx} ->
+      {i, _} = Integer.parse(v)
+      {i, idx}
+    end)
+  end
 end

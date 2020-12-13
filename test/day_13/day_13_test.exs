@@ -8,7 +8,7 @@ defmodule Day13.Day13Test do
 
   test "should find first" do
     result = Bus.find_first(939, [7, 13, 59, 31, 19])
-    # IO.inspect(result)
+
     assert result == {944, 59}
     {depart, bus} = result
     assert (depart - 939) * bus == 295
@@ -24,5 +24,11 @@ defmodule Day13.Day13Test do
 
     {depart, bus} = result
     assert (depart - 1_001_938) * bus == 4315
+  end
+
+  test "get timestamp offsets" do
+    result = Bus.get_offsets("7,13,x,x,59,x,31,19")
+
+    assert result == [{7, 0}, {13, 1}, {59, 4}, {31, 6}, {19, 7}]
   end
 end
