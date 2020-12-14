@@ -31,4 +31,26 @@ defmodule Day13.Day13Test do
 
     assert result == [{7, 0}, {13, 1}, {59, 4}, {31, 6}, {19, 7}]
   end
+
+  test "slow approche" do
+    table = Bus.get_offsets("17,x,13,19")
+    time = Bus.find_first_cons(table)
+    assert time == 3417
+
+    # table = Bus.get_offsets("67,7,59,61")
+    # time = Bus.find_first_cons(table)
+    # assert time == 754_018
+
+    # table = Bus.get_offsets("67,x,7,59,61")
+    # time = Bus.find_first_cons(table)
+    # assert time == 779_210
+
+    # table = Bus.get_offsets("67,7,x,59,61")
+    # time = Bus.find_first_cons(table)
+    # assert time == 1_261_476
+
+    # table = Bus.get_offsets("1789,37,47,1889")
+    # time = Bus.find_first_cons(table)
+    # assert time == 1_202_161_486
+  end
 end
