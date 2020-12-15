@@ -39,7 +39,7 @@ mem[8] = 0"
   end
 
   test "Run puzzle program" do
-    prog = input = File.read!("./test/day_14/input")
+    prog = File.read!("./test/day_14/input")
 
     {_, mem} =
       prog
